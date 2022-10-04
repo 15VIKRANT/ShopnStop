@@ -1,0 +1,15 @@
+.cart{
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftbox{
+    border: 1px solid red;
+    align-items: center;
+    
+}
+
+.counter{
+    display: flex;   
+    align-items: center; 
+}

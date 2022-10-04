@@ -1,0 +1,43 @@
+.product{
+    border-radius: 20px;
+background: linear-gradient(225deg, #c5bdbd, #eae1e1);
+box-shadow:  -35px 35px 70px #bab3b3,
+             35px -35px 70px #fcf2f2;
+             width: 350px;
+             height: 350px;
+             align-items: center;
+             cursor: pointer;
+             align-content: center;
+             margin:10px
+             
+}
+
+.product >Image {
+    height: 80px;
+    width: 150px;
+    border:1px solid black;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+.body{
+    background-color: aliceblue;
+}
+
+.outerbox{
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   grid-gap: 10px;
+   border: 2px solid red;
+   
+
+}
+
+.products{
+    
+    overflow-y: scroll;
+    height: 900px;
+   
+}

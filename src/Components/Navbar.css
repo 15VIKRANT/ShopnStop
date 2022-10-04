@@ -1,0 +1,8 @@
+.jadu{
+    position: relative;
+    bottom: 6px;
+}
+
+.outer{
+    display: flex;
+}
