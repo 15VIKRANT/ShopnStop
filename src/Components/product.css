@@ -29,8 +29,8 @@ box-shadow:  -35px 35px 70px #bab3b3,
 .outerbox{
    display: grid;
    grid-template-columns: repeat(3,1fr);
-   grid-gap: 10px;
-   border: 2px solid red;
+   grid-gap: 15px;
+   border: 2px solid rgb(232, 142, 142);
    
 
 }
@@ -39,5 +39,23 @@ box-shadow:  -35px 35px 70px #bab3b3,
     
     overflow-y: scroll;
     height: 900px;
+    background-color: aliceblue;
    
+}
+
+.divider{
+    display: flex;
+    justify-content: space-between;
+}
+
+.divider :nth-child(2){
+    background-color: black;
+    color: solid black;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.outercontainer{
+    display: flex;
+    justify-content: space-around;
 }

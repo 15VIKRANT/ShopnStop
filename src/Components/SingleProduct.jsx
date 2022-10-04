@@ -20,27 +20,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
   import { MdLocalShipping } from 'react-icons/md';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
   
   export  const SingleProduct=()=>{
-
+  const navigate= useNavigate()
     let [productdata,setProductdata]=useState([])
     const {id}=useParams()
     console.log(id)
-
-//    const Display=()=>{
-//     if(id!=undefined){
-//         axios.get(`http://localhost:5000/product/${id}`)
-//         .then((r)=>{
-//             setProductdata(r.data)
-         
-//         })
-//         .catch(e=>console.log(e.message))
-//         }
-//         else{
-//             console.log("Bhaiya")
-//         }
-//    }
 
 
    const displayData=()=>{
@@ -54,20 +40,31 @@ import { useParams } from 'react-router-dom';
    }    
 
    
-   let userData=JSON.parse(localStorage.getItem('login'))
-   
-   let obj={...productdata, "userId": userData.user._id}
+    let userData=JSON.parse(localStorage.getItem('login')) || []
+    console.log(userData, "p[{}}{")
+    console.log(productdata);
+   if(userData.length!==0)
+   {
+           var obj={...productdata, "userId": userData.user._id};
+   } 
+  
     const handleChange=()=>
     {
+      if(userData.length==0)
+      {
+       alert("please login for shopping")
+        navigate('/login' ,{required:true})
+      }
+      else{
         axios.post('http://localhost:5000/cart',obj)
          .then((r)=>{
             console.log(r);
-            alert('added to Cart')
-           
+            alert('added to Cart')         
          })
          .catch((err)=>{
             console.log({err:err.message})
         })
+      }
             
     }
 
@@ -167,7 +164,6 @@ import { useParams } from 'react-router-dom';
               Add to cart
              
             </Button>
-  
             <Stack direction="row" alignItems="center" justifyContent={'center'}>
               <MdLocalShipping />
               <Text>2-3 business days delivery</Text>

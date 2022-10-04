@@ -8,7 +8,7 @@ import {
   Text,
   Container,
 } from '@chakra-ui/react';
-// Here we have used react-icons package for the icons
+
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
@@ -38,43 +38,43 @@ export const CaptionCarousel=()=>{
       text:
         "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        'https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+        'https://images.unsplash.com/photo-1658321466691-bda686e1e1ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNhbXN1bmclMjBnYWxheHklMjBzMTAlMjBwbHVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     },
     {
       title: 'Design Projects 2',
       text:
         "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        'https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2274&q=80',
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGVjb21tZXJjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
     },
     {
       title: 'Design Projects 3',
       text:
         "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        'https://images.unsplash.com/photo-1507237998874-b4d52d1dd655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+        'https://images.unsplash.com/photo-1658321466691-bda686e1e1ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNhbXN1bmclMjBnYWxheHklMjBzMTAlMjBwbHVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     },
   ];
 
   return (
     <Box
       position={'relative'}
-      height={'600px'}
-      width={'full'}
+      height={'400px'}
+      width={'50%'}
       overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
         type="text/css"
         charSet="UTF-8"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        href="https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZWNvbW1lcmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
       />
       <link
         rel="stylesheet"
         type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        href="https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZWNvbW1lcmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
       />
-      {/* Left Icon */}
+    
       <IconButton
         aria-label="left-arrow"
         variant="ghost"
@@ -86,7 +86,7 @@ export const CaptionCarousel=()=>{
         onClick={() => slider?.slickPrev()}>
         <BiLeftArrowAlt size="40px" />
       </IconButton>
-      {/* Right Icon */}
+      
       <IconButton
         aria-label="right-arrow"
         variant="ghost"
@@ -103,7 +103,8 @@ export const CaptionCarousel=()=>{
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'6xl'}
+            height={'100%'}
+            width={'100%'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"

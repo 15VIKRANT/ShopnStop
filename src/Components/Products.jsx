@@ -9,6 +9,8 @@ import {
     GridItem,
     Flex,
     Button,
+    Checkbox,
+    CheckboxGroup,
   } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import {Link, ScrollRestoration} from 'react-router-dom'
@@ -24,7 +26,7 @@ import {Link, ScrollRestoration} from 'react-router-dom'
     const [sort , setSort]=useState("");
     
     const handle=(e)=>{
-         e.preventDefault();
+         //e.preventDefault();
          setName(e.target.value)
 
     }
@@ -57,6 +59,7 @@ import {Link, ScrollRestoration} from 'react-router-dom'
 
    }    
    
+   //console.log(data);
    const handlechange=(e)=>{
     setName(e.target.value)
    }
@@ -74,20 +77,27 @@ import {Link, ScrollRestoration} from 'react-router-dom'
 
     return (
        
-        <Flex>
+        <Box className='outercontainer'>
         <Box className='fixeditem'>
           <Box>  
           Filter by Category 
-          <select name="name" onChange={handle}>
-          <option value="">Relevence</option>
-            <option value="Samsung">Samsung</option>
-            <option value="Webroot">Webroot</option>
-            <option value="Kaspersky">Kaspersky </option>
-            <option value="Trend">Trend</option>
-          </select>
+          <br/><br/>
+          <CheckboxGroup colorScheme='green' >
+  <Stack spacing={[1, 1]} direction={['column']}>
+    <Checkbox value='Samsung' onChange={handle}>Samsung</Checkbox>
+    <Checkbox value='Webroot' onChange={handle}>Webroot</Checkbox>
+    <Checkbox value='Kaspersky' onChange={handle}>Kaspersky</Checkbox>
+    <Checkbox value='Trend' onChange={handle}>Trend</Checkbox>
+  </Stack>
+</CheckboxGroup>
           </Box>
-          <Box>  
-          Sort by price 
+         
+        </Box>
+        <Box className='products'>
+           <Box className='divider'>
+            <Box></Box>
+            <Box>
+       
           <select name="name" onChange={handleC}>
           <option >Sort by Price</option>
           <option value="">sort by Relevence</option>
@@ -96,8 +106,7 @@ import {Link, ScrollRestoration} from 'react-router-dom'
           
           </select>
           </Box>
-        </Box>
-        <Box className='products'>
+            </Box>
         <div className='outerbox'>
             
        {data.map((e)=>{
@@ -117,7 +126,7 @@ import {Link, ScrollRestoration} from 'react-router-dom'
      
       </div>
       </Box>
-      </Flex>
+      </Box>
       
     );
   }

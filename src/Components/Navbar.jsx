@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 import './Navbar.css'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import {Link} from  'react-router-dom'
+import {Link, Navigate, useNavigate} from  'react-router-dom'
 const NavLink = ({ children }) => (
   <Link
     px={2}
@@ -34,6 +34,7 @@ const NavLink = ({ children }) => (
 );
 
 export  const Navbar=()=> {
+  const navigate= useNavigate()
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   let userData=JSON.parse(localStorage.getItem('login'))
@@ -43,6 +44,7 @@ export  const Navbar=()=> {
   const handledelete=()=>{
           localStorage.removeItem('login');
           window.location.reload()
+          navigate('/')
   }
   
   return (
@@ -61,7 +63,7 @@ export  const Navbar=()=> {
              <Box className='jadu'>0</Box>
             </Box>
           </Link>
-         <Input placholder="search for product name" height={50} width={200}/>
+         <Input placholder="Search for product name" height={50} width={200}/>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               <Button onClick={toggleColorMode}>
@@ -77,7 +79,7 @@ export  const Navbar=()=> {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                    src={'https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZWNvbW1lcmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -85,7 +87,7 @@ export  const Navbar=()=> {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
+                      src={'https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZWNvbW1lcmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'}
                     />
                   </Center>
                   <br />
