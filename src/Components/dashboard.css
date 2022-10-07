@@ -1,0 +1,23 @@
+.boxer{
+     display: flex;
+     justify-content: space-between;
+     border: 1px solid black;
+     margin: 2px;
+     height: 200px;
+}
+
+.boxer > img{
+    height: 190px;
+    width: 150px;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.innerbox{
+    display: flex;
+    justify-content: space-between;
+}

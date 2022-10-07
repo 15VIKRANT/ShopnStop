@@ -14,12 +14,12 @@ import {
   } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import {Link, ScrollRestoration} from 'react-router-dom'
- import axios from 'axios' 
- import './product.css'
+import axios from 'axios' 
+import './dashboard.css'
   const IMAGE =
     'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
   
-  export const Products=()=>{
+   const Dashboard=()=>{
   
     const [data,setData]=useState([]);
     const[name,setName]=useState("");
@@ -80,56 +80,60 @@ import {Link, ScrollRestoration} from 'react-router-dom'
 
     return (
        
-        <Box className='outercontainer'>
-        <Box className='fixeditem'>
-          <Box>  
-          Filter by Category 
-          <br/><br/>
-          <CheckboxGroup colorScheme='green' >
-  <Stack spacing={[1, 1]} direction={['column']}>
-    <Checkbox value='Samsung' onChange={handle}>Samsung</Checkbox>
-    <Checkbox value='Webroot' onChange={handle}>Webroot</Checkbox>
-    <Checkbox value='Kaspersky' onChange={handle}>Kaspersky</Checkbox>
-    <Checkbox value='Trend' onChange={handle}>Trend</Checkbox>
-  </Stack>
-</CheckboxGroup>
-          </Box>
-         
-        </Box>
-        <Box className='products'>
-           <Box className='divider'>
-            <Box></Box>
-            <Box>
-       
-          <select name="name" onChange={handleC}>
-          <option >Sort by Price</option>
-          <option value="">sort by Relevence</option>
-            <option value="asc">Low to High</option>
-            <option value="desc">High to Low</option>
-          
-          </select>
-          </Box>
-            </Box>
-        <div className='outerbox'>
+      
+        <div className='innerbox'>
             
+            <Box className='sidebar'>
+                <Box>Users</Box>
+                <Box>Products</Box>
+                <Box>Orders</Box>
+                <Box>Add New Product</Box>
+            </Box>
+            <Box>
        {data.map((e)=>{
         return(
-            <div className='product' onClick={handlechange} key={e.id}>   
-            <Link to={`/product/${e._id}`}>    
-            <Image src={e.image} alt='image' height={200} width={200}/>
-            <h3>{e.name}</h3>
-            <h3>₹ {e.salePrice}</h3>  
-            </Link>
-            </div>
+            <Box className='boxer'>
+                <Box>{e.name}</Box>
+                <Box>Rs {e.salePrice}</Box>
+                <img src={e.image} />
+                <Button>Edit</Button>
+            </Box>
         )
        })}
+       </Box>
       
-
-
-     
       </div>
-      </Box>
-      </Box>
+
+      
       
     );
   }
+
+
+  export default Dashboard
+
+
+
+  const Users=()=>{
+     
+    const [user,setUser]=useState([])
+      const displayusers=()=>{
+      
+        axios.get('http://localhost:5000/user')
+        .then((res)=>{
+            setUser(res.data.user)
+            console.log(user)
+        })
+        .catch((err)=>{
+           console.log({err:err.message})
+        })  
+    }
+
+    
+
+  
+    useEffect((e)=>{
+
+        displayusers()
+        })
+ }

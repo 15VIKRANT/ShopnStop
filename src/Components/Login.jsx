@@ -20,6 +20,8 @@ import { BiHandicap } from 'react-icons/bi';
 import {  useNavigate,Link } from 'react-router-dom';
 import axios from 'axios'
   
+
+let login=JSON.parse(localStorage.getItem('login')) || [];
   export const Login=()=>{
     const [data,setData]= useState({
         email:"",
@@ -45,8 +47,8 @@ import axios from 'axios'
             console.log(r)
             alert('Login Succesfull')
            navigate('/')
-
-           localStorage.setItem("login", JSON.stringify(r.data));
+              login.push(JSON.stringify(r.data))
+           localStorage.setItem("login",login);
            window.location.reload()
          })
          .catch((err)=>{

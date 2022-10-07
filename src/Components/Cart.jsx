@@ -4,6 +4,7 @@ import {
   Heading,
   Text,
   Image,
+  Input,
   Flex,
   Button,
   Stack,
@@ -12,6 +13,7 @@ import {
   useColorModeValue,
   Spacer,
 } from '@chakra-ui/react';
+import {DeleteIcon} from '@chakra-ui/icons'
 import './cart.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -73,6 +75,13 @@ export const Cart=()=>{
       sum+=e.salePrice * e.count;
     })
 
+    let GST=0;
+    cartdata.forEach((e)=>{
+      GST+=((e.salePrice)*(18/100))*e.count;
+    })
+
+    let total=(Number(sum.toFixed(2))+Number(GST.toFixed(2))).toFixed(2)
+
     const handleDelete=(e)=>{
       axios.delete(`http://localhost:5000/cart/${e._id}`)
       .then((res)=>{
@@ -83,11 +92,23 @@ export const Cart=()=>{
           )});
 
     }
-    
+
+    const Coupon ='viketan' 
 
     useEffect(()=>{
         Display()
     },[cartdata])
+
+ const handlecode=(e)=>{
+     if(e.key=='enter')
+     {
+        if(e.target.value =='viketan')
+        {
+              console.log("jadu")
+          total=total - (total*(20/100)) 
+        }
+     }
+ }
 
   return (
       <Box className='Outercontainer'>
@@ -98,7 +119,7 @@ export const Cart=()=>{
       <div className="app">
        <Box className='outer'>
         <Flex alignItems={'center'}>
-          <Button onClick={()=>handleDelete(e)}>Delete</Button> 
+          <Button onClick={()=>handleDelete(e)}><DeleteIcon/></Button> 
         </Flex>
         <Flex>
           <Box>
@@ -120,7 +141,13 @@ export const Cart=()=>{
   </Box>
  
  <Box className='rightcontainer'>
-  Total Sum: {sum}
+  <Box>SubTotal :{sum.toFixed(2)}</Box>
+  <Box>GST: {GST.toFixed(2)}</Box>
+  <Flex>
+   <Box>Add Coupon</Box>
+   <Box> <Input placeholder="Enter Code"  onKeyPress={handlecode} /></Box>
+  </Flex>
+  <Box>Total :{total}</Box> 
  </Box>
   </Box>
   );

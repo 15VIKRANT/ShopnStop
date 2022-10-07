@@ -25,6 +25,7 @@ import { useNavigate, useParams } from 'react-router-dom';
   export  const SingleProduct=()=>{
   const navigate= useNavigate()
     let [productdata,setProductdata]=useState([])
+    const [already,setAlready]=useState(false)
     const {id}=useParams()
     console.log(id)
 
@@ -50,12 +51,23 @@ import { useNavigate, useParams } from 'react-router-dom';
   
     const handleChange=()=>
     {
+              axios.get(`http://localhost:5000/cart/${productdata._id}`)
+                   .then((r)=>{
+                       setAlready(true);
+                   })
+     
       if(userData.length==0)
       {
        alert("please login for shopping")
         navigate('/login' ,{required:true})
       }
+      
       else{
+        if(already==true)
+        {
+          alert("ALready added to the cart")
+        }
+        {
         axios.post('http://localhost:5000/cart',obj)
          .then((r)=>{
             console.log(r);
@@ -65,6 +77,8 @@ import { useNavigate, useParams } from 'react-router-dom';
             console.log({err:err.message})
         })
       }
+    }
+
             
     }
 
@@ -72,7 +86,7 @@ import { useNavigate, useParams } from 'react-router-dom';
       
     displayData()
     
-    }, [])
+    }, [already])
 
     return (
       <Container maxW={'7xl'}>
@@ -131,7 +145,7 @@ import { useNavigate, useParams } from 'react-router-dom';
                 </Text>
   
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                  <List spacing={2}>
+                  <List spacing={2} alignContent={'left'}>
                     <ListItem>Shipping: {productdata.shipping}</ListItem>
                     <ListItem>Category: {productdata.categories}</ListItem>{' '}
                     <ListItem>Manufacturer: {productdata.manufacturer}</ListItem>
@@ -142,7 +156,9 @@ import { useNavigate, useParams } from 'react-router-dom';
                     <ListItem>Chronometer</ListItem>
                     <ListItem>Small seconds</ListItem>
                   </List>
+                 
                 </SimpleGrid>
+              
               </Box>
             </Stack>
   

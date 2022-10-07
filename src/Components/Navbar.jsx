@@ -37,9 +37,9 @@ export  const Navbar=()=> {
   const navigate= useNavigate()
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  let userData=JSON.parse(localStorage.getItem('login'))
-  console.log(userData)
-
+  let userData=JSON.parse(localStorage.getItem('login')) || [];
+  
+  //console.log(userData.user.role)
 
   const handledelete=()=>{
           localStorage.removeItem('login');
@@ -57,6 +57,16 @@ export  const Navbar=()=> {
           <Link to='/product'>
              <Box>Products</Box>
           </Link>
+
+      {userData.length!==0 ?
+      <>
+         {userData.user.role=="admin" ? <Link to='/dashboard'>Admin Dashboard</Link>:<></>}
+      </>
+      : <></>
+      }
+      {/* {userData[0].user.role =="admin" ? <Link to='/dashboard'>Admin Dashboard</Link> :<></>} */}
+     
+        
           <Link to='/cart'>
             <Box className='outer'>
              <Box>Cart</Box>
@@ -91,13 +101,9 @@ export  const Navbar=()=> {
                     />
                   </Center>
                   <br />
-                  <Center>
-                    {userData ? <p>{userData.user.firstname}</p> : <p>username</p>}
-                    
-                  </Center>
                   <br />
                   <MenuDivider />
-                  {!userData ? 
+                  {userData.length==0? 
                   <Link to='/login'><MenuItem>Login</MenuItem>
                   </Link>
                   : <Button onClick={handledelete}>Logout</Button>}
