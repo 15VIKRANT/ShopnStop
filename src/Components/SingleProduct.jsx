@@ -32,7 +32,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
    const displayData=()=>{
   
-    axios.get(`http://localhost:5000/product/${id}`).then((res)=>{
+    axios.get(`http://localhost:8000/product/${id}`).then((res)=>{
         setProductdata(res.data)
     })
     .catch((error)=>{
@@ -51,7 +51,7 @@ import { useNavigate, useParams } from 'react-router-dom';
   
     const handleChange=()=>
     {
-              axios.get(`http://localhost:5001/cart/${productdata._id}`)
+              axios.get(`http://localhost:8000/cart/${productdata._id}`)
                    .then((r)=>{
                        setAlready(true);
                    })
@@ -68,7 +68,7 @@ import { useNavigate, useParams } from 'react-router-dom';
           alert("ALready added to the cart")
         }
         {
-        axios.post('http://localhost:5001/cart',obj)
+        axios.post('http://localhost:8000/cart',obj)
          .then((r)=>{
             console.log(r);
             alert('added to Cart')         

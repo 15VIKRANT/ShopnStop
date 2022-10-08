@@ -36,7 +36,7 @@ export const Products = () => {
 
   const displayData = (name, sort) => {
 
-    axios.get('http://localhost:5001/product').then((res) => {
+    axios.get('http://localhost:8000/product').then((res) => {
       var array = res.data;
       var array = array.filter((e) =>
         e.manufacturer.includes(name)

@@ -42,7 +42,7 @@ let login=JSON.parse(localStorage.getItem('login')) || [];
 
     const submit=(e)=>{
        console.log(data)
-         axios.post('http://localhost:5001/login',data)
+         axios.post('http://localhost:8000/login',data)
          .then((r)=>{
             console.log(r)
             alert('Login Succesfull')
@@ -53,9 +53,7 @@ let login=JSON.parse(localStorage.getItem('login')) || [];
          })
          .catch((err)=>{
             console.log({err:err.message})
-        })
-
-         
+        })      
 
         }
 

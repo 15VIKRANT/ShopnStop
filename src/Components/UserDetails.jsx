@@ -37,7 +37,7 @@ import axios from 'axios';
 
  const update=(e)=>{
     e.preventDefault()
-        axios.patch(`http://localhost:5001/updateuser/${userData.user._id}`,data)
+        axios.patch(`http://localhost:8000/updateuser/${userData.user._id}`,data)
         .then((res)=>{
               console.log(res)
         })
