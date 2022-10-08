@@ -11,6 +11,8 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Divider,
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Link, ScrollRestoration } from 'react-router-dom'
@@ -54,12 +56,9 @@ export const Products = () => {
       .catch((error) => {
         console.log({ err: error.message })
       })
-
   }
 
   let userData = JSON.parse(localStorage.getItem('login'))
-  console.log(userData)
-
 
   const handlechange = (e) => {
     setName(e.target.value)
@@ -70,20 +69,29 @@ export const Products = () => {
   }
 
   useEffect(() => {
-
     displayData(name, sort)
-
   }, [name, sort])
 
 
   return (
 
-    <Box className='outercontainer' width={"80%"} margin="auto">
-      <Box className='fixeditem'>
-        <Box>
-          Filter by Category
-          <br /><br />
-          <CheckboxGroup colorScheme='green' >
+    <Box className='outercontainer' width={"80%"} margin="auto" >
+      <Box className='fixeditem' width={"20%"} >
+        <Breadcrumb fontWeight='medium' fontSize='sm' mt={"10px"}>
+          <BreadcrumbItem>
+            <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>
+            <BreadcrumbLink href='#'>Products</BreadcrumbLink>
+          </BreadcrumbItem>
+        </Breadcrumb>
+        <Box mt={"10px"}>
+          <Heading as='h6' size='xs' mb={"10px"}>
+            Filter
+          </Heading>
+          <Divider />
+          <CheckboxGroup colorScheme='green'>
+            <text>CATEGORIES</text>
             <Stack spacing={[1, 1]} direction={['column']}>
               <Checkbox value='Samsung' onChange={handle}>Samsung</Checkbox>
               <Checkbox value='Webroot' onChange={handle}>Webroot</Checkbox>
@@ -93,26 +101,33 @@ export const Products = () => {
           </CheckboxGroup>
         </Box>
       </Box>
-      <Box className='products'>
-        <Box className='divider'>
-          <Box></Box>
+
+      <Box className='products' width={"80%"} mt={"20px"}>
+        <Box className='divider' mb={"20px"}>
           <Box>
             <select name="name" onChange={handleC}>
-              <option >Sort by Price</option>
+              <option >
+                <Heading as='h6' size='xs'>
+                  Sort By:View
+                </Heading>
+              </option>
               <option value="">sort by Relevence</option>
               <option value="asc">Low to High</option>
               <option value="desc">High to Low</option>
             </select>
           </Box>
         </Box>
-        <div className='outerbox'>
-
+        <div className='outerbox' >
           {data.map((e) => {
             return (
-              <div className='product' onClick={handlechange} key={e.id}>
+              <div className='product' onClick={handlechange} key={e.id} >
                 <Link to={`/product/${e._id}`}>
-                  <Image src={e.image} alt='image' height={200} width={200} />
-                  <h3>{e.name}</h3>
+                  <Center h='210px' color='white'>
+                    <Image src={e.image} alt='image' />
+                  </Center>
+                  <Heading as='h6' size='xs' >
+                    {e.name}
+                  </Heading>
                   <h3>₹ {e.salePrice}</h3>
                 </Link>
               </div>
