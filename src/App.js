@@ -11,6 +11,7 @@ import { Navbar } from './Components/Navbar';
 import {Products} from './Components/Products';
 import { Signup } from './Components/Signup';
 import { SingleProduct } from './Components/SingleProduct';
+import {UserDetails} from './Components/UserDetails';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
   <Route path='/signup' element={<Signup/>}></Route>
   <Route path='/login' element={<Login/>}></Route>
   <Route path='/dashboard' element={<Dashboard/>}></Route>
-
+  <Route path='/userdetail' element={<UserDetails/>}></Route>
       </Routes>
     </div>
   );

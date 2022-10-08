@@ -27,7 +27,7 @@ export const Cart=()=>{
     let id=userData.user._id;
   
     const Display=()=>{
-        axios.get(`http://localhost:5000/cart/${id}`)
+        axios.get(`http://localhost:5001/cart/${id}`)
         .then((r)=>{   
 
            setCartdata(r.data)
@@ -38,7 +38,7 @@ export const Cart=()=>{
     }
 
     const increment=(e)=>{
-          axios.patch(`http://localhost:5000/cart/${e._id}`,{"count":e.count+1},
+          axios.patch(`http://localhost:5001/cart/${e._id}`,{"count":e.count+1},
           {
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
         })
@@ -49,14 +49,13 @@ export const Cart=()=>{
             console.log({err:err.message}
               )});
 
-              console.log(e._id)
-        
+              console.log(e._id)        
     }
 
     const decrement=(e)=>{
       
       
-          axios.patch(`http://localhost:5000/cart/${e._id}`,{"count":e.count-1},
+          axios.patch(`http://localhost:5001/cart/${e._id}`,{"count":e.count-1},
           {
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
         })
@@ -83,7 +82,7 @@ export const Cart=()=>{
     let total=(Number(sum.toFixed(2))+Number(GST.toFixed(2))).toFixed(2)
 
     const handleDelete=(e)=>{
-      axios.delete(`http://localhost:5000/cart/${e._id}`)
+      axios.delete(`http://localhost:5001/cart/${e._id}`)
       .then((res)=>{
         console.log(res, "deleted")
       })
@@ -103,8 +102,7 @@ export const Cart=()=>{
      if(e.key=='enter')
      {
         if(e.target.value =='viketan')
-        {
-              console.log("jadu")
+        {        
           total=total - (total*(20/100)) 
         }
      }

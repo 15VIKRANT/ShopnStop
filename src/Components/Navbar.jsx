@@ -15,6 +15,7 @@ import {
   useColorMode,
   Input
  , Center,
+ VStack,
 } from '@chakra-ui/react';
 import './Navbar.css'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
@@ -58,13 +59,8 @@ export  const Navbar=()=> {
              <Box>Products</Box>
           </Link>
 
-      {userData.length!==0 ?
-      <>
-         {userData.user.role=="admin" ? <Link to='/dashboard'>Admin Dashboard</Link>:<></>}
-      </>
-      : <></>
-      }
-      {/* {userData[0].user.role =="admin" ? <Link to='/dashboard'>Admin Dashboard</Link> :<></>} */}
+   
+     
      
         
           <Link to='/cart'>
@@ -101,6 +97,16 @@ export  const Navbar=()=> {
                     />
                   </Center>
                   <br />
+                  <Center>
+       {userData.length!==0 ?
+                 <>
+         {userData.user.role=="admin" ? <Link to='/dashboard'>Admin Dashboard</Link>:
+         <><VStack><h2>Welcome, {userData.user.firstname}</h2>
+           <br/>
+           <Link to='/userdetail'>Profile</Link>
+           </VStack></>}
+                  </> : <></> }
+                  </Center>
                   <br />
                   <MenuDivider />
                   {userData.length==0? 

@@ -26,15 +26,13 @@ import './dashboard.css'
     const [sort , setSort]=useState("");
     
     const handle=(e)=>{
-         //e.preventDefault();
          setName(e.target.value)
-
     }
     console.log(name)
 
    const displayData=(name,sort)=>{
   
-    axios.get('http://localhost:5000/product').then((res)=>{
+    axios.get('http://localhost:5001/product').then((res)=>{
       var array=res.data;
       var array = array.filter((e) =>
       e.manufacturer.includes(name)
@@ -119,7 +117,7 @@ import './dashboard.css'
     const [user,setUser]=useState([])
       const displayusers=()=>{
       
-        axios.get('http://localhost:5000/user')
+        axios.get('http://localhost:5001/user')
         .then((res)=>{
             setUser(res.data.user)
             console.log(user)

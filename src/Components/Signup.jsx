@@ -42,7 +42,7 @@ import axios from 'axios'
 
     const submit=(e)=>{
        console.log(data)
-         axios.post('http://localhost:5000/register',data)
+         axios.post('http://localhost:5001/register',data)
          .then((r)=>{
             alert('signup Succesfull')
            navigate('/login')
