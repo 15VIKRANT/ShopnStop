@@ -89,7 +89,6 @@ export const Cart=()=>{
       .catch((err)=>{
         console.log({err:err.message}
           )});
-
     }
 
     const Coupon ='viketan' 
