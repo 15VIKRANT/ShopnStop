@@ -11,12 +11,12 @@ import {
   MenuDivider,
   useDisclosure,
   useColorModeValue,
-  Stack,
   useColorMode,
   Input
   , Center,
   VStack,
   Heading,
+  Stack,
 } from '@chakra-ui/react';
 import './Navbar.css'
 import { ImCart } from "react-icons/im"
@@ -108,18 +108,11 @@ export const Navbar = () => {
                   </Center>
                   <br />
                   <MenuDivider />
-<<<<<<< Updated upstream
                   {userData.length == 0 ?
                     <Link to='/login'><MenuItem>Login</MenuItem>
                     </Link>
                     : <Button onClick={handledelete}>Logout</Button>}
 
-=======
-                  {!userData ? 
-                  <Link to='/login'><MenuItem>Login</MenuItem>
-                  </Link>
-                  : <Button onClick={handledelete}>Logout</Button>}
->>>>>>> Stashed changes
                 </MenuList>
               </Menu>
             </Stack>
