@@ -1,8 +1,14 @@
-.jadu{
+.jadu {
     position: relative;
-    bottom: 6px;
+    background-color: red;
+    border-radius: 70%;
+    height: 22px;
+    width: 22px;
+    bottom: 12px;
+    right: 4px;
+    align-items: center;
 }
 
-.outer{
+.outer {
     display: flex;
 }

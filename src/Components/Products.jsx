@@ -12,7 +12,7 @@ import {
   Checkbox,
   CheckboxGroup,
   Divider,
-  Breadcrumb, BreadcrumbItem, BreadcrumbLink
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink, Select
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Link, ScrollRestoration } from 'react-router-dom'
@@ -101,20 +101,14 @@ export const Products = () => {
           </CheckboxGroup>
         </Box>
       </Box>
-
       <Box className='products' width={"80%"} mt={"20px"}>
         <Box className='divider' mb={"20px"}>
           <Box>
-            <select name="name" onChange={handleC}>
-              <option >
-                <Heading as='h6' size='xs'>
-                  Sort By:View
-                </Heading>
-              </option>
-              <option value="">sort by Relevence</option>
-              <option value="asc">Low to High</option>
-              <option value="desc">High to Low</option>
-            </select>
+            <Select placeholder='Select option' name="name" onChange={handleC}>
+              <option value=''>Sort by Relevence</option>
+              <option value='asc'>Low to High</option>
+              <option value='desc'>High to Low</option>
+            </Select>
           </Box>
         </Box>
         <div className='outerbox' >

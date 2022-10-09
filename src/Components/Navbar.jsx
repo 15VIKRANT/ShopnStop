@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import './Navbar.css'
 import { ImCart } from "react-icons/im"
-import { FaUserCircle } from "react-icons/fa"
+import { BsFillPersonFill } from "react-icons/bs"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 const NavLink = ({ children }) => (
@@ -80,12 +80,11 @@ export const Navbar = () => {
               </Button>
               <Menu>
                 <MenuButton
-                  as={Button}
                   rounded={'full'}
                   variant={'link'}
                   cursor={'pointer'}
                   minW={0}>
-                  <FaUserCircle color='black' size="25px" />
+                  <BsFillPersonFill size="25px" />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
                   <br />
