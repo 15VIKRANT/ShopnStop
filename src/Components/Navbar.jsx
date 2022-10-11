@@ -45,7 +45,7 @@ export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [cart, setCart] = useState([])
   let userData = JSON.parse(localStorage.getItem('login')) || [];
-
+ console.log(userData)
   const handledelete = () => {
     localStorage.removeItem('login');
     window.location.reload()
@@ -54,7 +54,7 @@ export const Navbar = () => {
   
 
   const Display =()=> {
-    if(userData!==null)
+    if(userData.length!==0)
     { 
     axios
       .get(`https://stopnshops.herokuapp.com/cart/${userData.user._id}`)
@@ -71,7 +71,7 @@ export const Navbar = () => {
 
    var sum=0;
 
-    if(userData!==null)
+    if(userData.length!==0)
     { 
         if(cart.length!==0)
         {
