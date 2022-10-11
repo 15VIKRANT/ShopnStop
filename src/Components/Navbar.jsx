@@ -53,17 +53,35 @@ export const Navbar = () => {
   }
   
 
-  const Display = () => {
+  const Display =()=> {
+    if(userData!==null)
+    { 
     axios
       .get(`https://stopnshops.herokuapp.com/cart/${userData.user._id}`)
       .then((r) => {
-        setCart(r.data);
-        // console.log(cart);
+        setCart(r.data);      
       })
       .catch((err) => {
         console.log(err);
       });
+    }
+   
   };
+
+
+   var sum=0;
+
+    if(userData!==null)
+    { 
+        if(cart.length!==0)
+        {
+            cart.forEach((e)=>{ 
+              sum+=e.count})
+        }
+    }
+
+   
+
   useEffect(() => {
     Display()
   }, [cart])
@@ -78,7 +96,6 @@ export const Navbar = () => {
               <img src="https://prodstatic.shoppersstop.com/_ui/updated_path/images/rectangle_logo_black.svg" alt="LOGO" />
             </Box>
           </Link>
-          {/* <Input placholder="Search for product name" height={50} width={200} /> */}
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={4} >
               <Link to='/product'>
@@ -95,7 +112,7 @@ export const Navbar = () => {
                 <Box className='outer'>
                   <ImCart size='22px' />
                   <Box className='jadu'>
-                    {cart.length}
+                    {cart.length!==0 ? sum: 0}
                   </Box>
                 </Box>
               </Link>

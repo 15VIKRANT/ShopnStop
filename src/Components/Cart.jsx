@@ -8,11 +8,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import { RiCoupon3Fill } from "react-icons/ri"
 export const Cart = () => {
   const [cartdata, setCartdata] = useState([]);
+  const [coupon, setCoupon] =useState("");
   const navigate = useNavigate()
   let userData = JSON.parse(localStorage.getItem("login"));
   let id = userData.user._id;
 
-  const Display = () => {
+  const Display=()=>{
     axios
       .get(`https://stopnshops.herokuapp.com/cart/${id}`)
       .then((r) => {
@@ -41,6 +42,9 @@ export const Cart = () => {
     console.log(e._id);
   };
 
+
+
+ 
   const decrement = (e) => {
     axios
       .patch(
@@ -69,7 +73,17 @@ export const Cart = () => {
     GST += e.salePrice * (18 / 100) * e.count;
   });
 
-  let total = (Number(sum.toFixed(2)) + Number(GST.toFixed(2))).toFixed(2);
+  var total = (Number(sum.toFixed(2)) + Number(GST.toFixed(2))).toFixed(2);
+
+  const submitcoupon=()=>{
+    console.log(coupon)
+    if(coupon=="shopnstop")
+    {   
+              total=total*(50/100);
+            }
+       }
+          
+
 
   const handleDelete = (e) => {
     axios
@@ -82,19 +96,11 @@ export const Cart = () => {
       });
   };
 
-  const Coupon = "code";
-
   useEffect(() => {
     Display();
   }, [cartdata]);
 
-  const handlecode = (e) => {
-    if (e.key === "enter") {
-      if (e.target.value === "code") {
-        total = total - total * (20 / 100);
-      }
-    }
-  };
+
 
   const paymentHandler = async (e) => {
     alert("Your order is placed successfully")
@@ -153,7 +159,8 @@ export const Cart = () => {
           <Box border={"1px solid black"} mt={"10px"} display={"flex"} justifyContent={"space-around"}>
             <RiCoupon3Fill size={"30px"} />
             <Text fontSize='xl' >Apply for coupon</Text>
-            <input type="text" placeholder="Enter coupon" />
+            <input type="text" onChange={(e)=>{setCoupon(e.target.value)}} placeholder="Enter coupon" />
+          
           </Box>
           <Box border={"1px solid black"} mt={"10px"}>
             <Box mt={"10px"} fontSize='xl'>
@@ -170,7 +177,7 @@ export const Cart = () => {
             </Box>
             <input type="text" placeholder="Enter Your City Pincode" />
             <Box border={"1px solid black"} mt={"20px"} fontSize='xl'>
-              Total :{GST + (sum.toFixed(2) - 13)}
+              Total :{total}
             </Box>
           </Box>
           <Box mt={"10px"}>
