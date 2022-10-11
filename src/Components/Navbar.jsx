@@ -23,6 +23,8 @@ import { ImCart } from "react-icons/im"
 import { BsFillPersonFill } from "react-icons/bs"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 const NavLink = ({ children }) => (
   <Link
     px={2}
@@ -41,6 +43,7 @@ export const Navbar = () => {
   const navigate = useNavigate()
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [cart, setCart] = useState([])
   let userData = JSON.parse(localStorage.getItem('login')) || [];
 
   const handledelete = () => {
@@ -48,6 +51,22 @@ export const Navbar = () => {
     window.location.reload()
     navigate('/')
   }
+
+  const Display = () => {
+    axios
+      .get(`https://stopnshops.herokuapp.com/cart/${userData.user._id}`)
+      .then((r) => {
+        setCart(r.data);
+        // console.log(cart);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    Display()
+  }, [cart])
+
 
   return (
     <>
@@ -58,8 +77,7 @@ export const Navbar = () => {
               <img src="https://prodstatic.shoppersstop.com/_ui/updated_path/images/rectangle_logo_black.svg" alt="LOGO" />
             </Box>
           </Link>
-
-          <Input placholder="Search for product name" height={50} width={200} />
+          {/* <Input placholder="Search for product name" height={50} width={200} /> */}
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={4} >
               <Link to='/product'>
@@ -67,10 +85,17 @@ export const Navbar = () => {
                   Products
                 </Heading>
               </Link>
+              <Link to='/contactus'>
+                <Heading as='h5' size='sm' marginTop={"4px"}>
+                  Contact
+                </Heading>
+              </Link>
               <Link to='/cart'>
                 <Box className='outer'>
                   <ImCart size='22px' />
-                  <Box className='jadu'>0</Box>
+                  <Box className='jadu'>
+                    {cart.length}
+                  </Box>
                 </Box>
               </Link>
               <Button onClick={toggleColorMode} size="25px">

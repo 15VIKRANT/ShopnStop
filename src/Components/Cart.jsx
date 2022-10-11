@@ -4,11 +4,11 @@ import "./cart.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MdSmartDisplay } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { RiCoupon3Fill } from "react-icons/ri"
 export const Cart = () => {
   const [cartdata, setCartdata] = useState([]);
-
+  const navigate = useNavigate()
   let userData = JSON.parse(localStorage.getItem("login"));
   let id = userData.user._id;
 
@@ -26,8 +26,7 @@ export const Cart = () => {
   const increment = (e) => {
     axios
       .patch(
-        `https://stopnshops.herokuapp.com/cart/${e._id}`,
-        { count: e.count + 1 },
+        `https://stopnshops.herokuapp.com/cart/${e._id}`, { count: e.count + 1 },
         {
           headers: { "Content-type": "application/json; charset=UTF-8" },
         }
@@ -98,78 +97,20 @@ export const Cart = () => {
   };
 
   const paymentHandler = async (e) => {
-    const API_URL = "https://stopnshops.herokuapp.com/";
-    e.preventDefault();
-    const orderUrl = `${API_URL}order`;
-    const response = await axios.get(orderUrl);
-    const { data } = response;
-    const options = {
-      key: "rzp_test_UWWM0EkZk45wcb",
-      name: "shopNstop",
-      description: "Aapka cut Chuka Hai",
-      order_id: data.id,
-      handler: async (response) => {
-        try {
-          const paymentId = response.razorpay_payment_id;
-          const url = `${API_URL}capture/${paymentId}`;
-          const captureResponse = await axios.post(url, {});
-          console.log("data",captureResponse.data);
-        } catch (err) {
-          console.log(err);
-        }
-      },
-      theme: {
-        color: "#686CFD",
-      },
-    };
-    const rzp1 = new window.Razorpay(options);
-    rzp1.open();
+    alert("Your order is placed successfully")
+    axios.delete(`https://stopnshops.herokuapp.com/cart/deleteall/${id}`)
+      .then((r) => console.log(r))
+      .catch((e) => console.log({ error: e.message }))
+    navigate("/")
   };
 
   return (
-    // <Box className="Outercontainer">
-    //   <Box>
-    //     {cartdata?.map((e) => {
-    //       return (
-    //         <div className="app">
-    //           <Box className="outer" display={"flex"}>
-    //             <Image className="image" src={e.image}></Image>
-    //             <Box>{e.name}</Box>
-    //             <Box>{e.salePrice}</Box>
-    //             <Box>
-    //               <Button value="inc" disabled={e.count == 5} onClick={() => increment(e)}> + </Button>
-    //               <p>{e.count}</p>
-    //               <Button value="inc" disabled={e.count == 1} onClick={() => decrement(e)}> - </Button>
-    //             </Box>
-    //             <Button onClick={() => handleDelete(e)}>
-    //               <DeleteIcon />
-    //             </Button>
-    //           </Box>
-    //         </div>
-    //       );
-    //     })}
-    //   </Box>
-    //   <Box className="rightcontainer">
-    //     <Box>SubTotal :{sum.toFixed(2)}</Box>
-    //     <Box>GST: {GST.toFixed(2)}</Box>
-    //     <Flex>
-    //       <Box>Add Coupon</Box>
-    //       <Box>
-    //         {" "}
-    //         <Input placeholder="Enter Code" onKeyPress={handlecode} />
-    //       </Box>
-    //     </Flex>
-    //     <Box>Total :{total}</Box>
-    //     <Button onClick={paymentHandler}>Checkout</Button>
-    //   </Box>
-    // </Box>
-
     <Box width={"80%"} display="flex" margin={"auto"}>
       <Box width={"50%"} >
         <Box>
           {cartdata?.map((e) => {
             return (
-              <SimpleGrid columns={[2, null, 5]} spacing='10px' mt={"20px"}>
+              <SimpleGrid key={e._id} columns={[2, null, 5]} spacing='10px' mt={"20px"}>
                 <Center>
                   <Box  >
                     <Image className="image" src={e.image}></Image>
