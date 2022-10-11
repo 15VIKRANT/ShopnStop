@@ -48,6 +48,7 @@ export const Navbar = () => {
     window.location.reload()
     navigate('/')
   }
+  
 
   return (
     <>
