@@ -40,7 +40,7 @@ import axios from 'axios'
 
     const submit=(e)=>{
        console.log(data)
-         axios.post('http://localhost:5000/login',data)
+         axios.post('https://stopnshops.herokuapp.com/login',data)
          .then((r)=>{
             alert('Login Succesfull')
            navigate('/')

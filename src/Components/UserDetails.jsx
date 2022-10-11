@@ -4,22 +4,20 @@ import {
     FormControl,
     FormLabel,
     Input,
-    InputGroup,
-    HStack,
-    InputRightElement,
+    HStack, 
     Stack,
     Button,
     Heading,
     Text,
     useColorModeValue,
-    Link,
+    
   } from '@chakra-ui/react';
   import { useState } from 'react';
-  import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+
 import axios from 'axios';
   
   export const UserDetails=()=>{
-    const [showPassword, setShowPassword] = useState(false);
+   
     let userData=JSON.parse(localStorage.getItem('login')) || [];
    const [data, setData] =useState({
     address:"",
@@ -37,7 +35,7 @@ import axios from 'axios';
 
  const update=(e)=>{
     e.preventDefault()
-        axios.patch(`http://localhost:8000/updateuser/${userData.user._id}`,data)
+        axios.patch(`https://stopnshops.herokuapp.com/${userData.user._id}`,data)
         .then((res)=>{
               console.log(res)
         })
@@ -82,14 +80,6 @@ import axios from 'axios';
                 <Text type="text">{userData.user.email}</Text>
               </FormControl>
 
-            {/* .......................... */}
-
-              {/* <FormControl id="firstName" isRequired>
-                    <FormLabel>First Name</FormLabel>
-                    <Text type="text">{userData.user.firstname}  {userData.user.lastname}</Text>
-                  </FormControl> */}
-
-            {/* ......................... */}
 
              {userData.user.address  ? <FormControl id="firstName" isRequired>
                     <FormLabel>Address</FormLabel>

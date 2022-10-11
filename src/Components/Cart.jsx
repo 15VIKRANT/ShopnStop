@@ -14,7 +14,7 @@ export const Cart = () => {
 
   const Display = () => {
     axios
-      .get(`http://localhost:8000/cart/${id}`)
+      .get(`https://stopnshops.herokuapp.com/cart/${id}`)
       .then((r) => {
         setCartdata(r.data);
       })
@@ -26,7 +26,7 @@ export const Cart = () => {
   const increment = (e) => {
     axios
       .patch(
-        `http://localhost:8000/cart/${e._id}`,
+        `https://stopnshops.herokuapp.com/cart/${e._id}`,
         { count: e.count + 1 },
         {
           headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -45,7 +45,7 @@ export const Cart = () => {
   const decrement = (e) => {
     axios
       .patch(
-        `http://localhost:8000/cart/${e._id}`,
+        `https://stopnshops.herokuapp.com/cart/${e._id}`,
         { count: e.count - 1 },
         {
           headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -74,7 +74,7 @@ export const Cart = () => {
 
   const handleDelete = (e) => {
     axios
-      .delete(`http://localhost:8000/cart/${e._id}`)
+      .delete(`https://stopnshops.herokuapp.com/cart/${e._id}`)
       .then((res) => {
         console.log(res, "deleted");
       })
@@ -98,7 +98,7 @@ export const Cart = () => {
   };
 
   const paymentHandler = async (e) => {
-    const API_URL = "http://localhost:8000/";
+    const API_URL = "https://stopnshops.herokuapp.com/";
     e.preventDefault();
     const orderUrl = `${API_URL}order`;
     const response = await axios.get(orderUrl);

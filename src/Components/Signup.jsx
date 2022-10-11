@@ -9,14 +9,12 @@ import {
   InputRightElement,
   Stack,
   Button,
-  Heading,
   Text,
   useColorModeValue,
 
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { BiHandicap } from 'react-icons/bi';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios'
 
@@ -39,7 +37,7 @@ export const Signup = () => {
 
   const submit = (e) => {
     console.log(data)
-    axios.post('http://localhost:8000/register', data)
+    axios.post('https://stopnshops.herokuapp.com/register', data)
       .then((r) => {
         alert('signup Succesfull')
         navigate('/login')

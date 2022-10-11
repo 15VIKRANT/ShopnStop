@@ -43,8 +43,6 @@ export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let userData = JSON.parse(localStorage.getItem('login')) || [];
 
-  //console.log(userData.user.role)
-
   const handledelete = () => {
     localStorage.removeItem('login');
     window.location.reload()

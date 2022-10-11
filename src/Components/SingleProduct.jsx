@@ -1,6 +1,5 @@
 import {
     Box,
-    chakra,
     Container,
     Stack,
     Text,
@@ -12,13 +11,11 @@ import {
     SimpleGrid,
     StackDivider,
     useColorModeValue,
-    VisuallyHidden,
     List,
     ListItem,
   } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-  import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
   import { MdLocalShipping } from 'react-icons/md';
 import { useNavigate, useParams } from 'react-router-dom';
   
@@ -32,8 +29,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 
    const displayData=()=>{
   
-    axios.get(`http://localhost:8000/product/${id}`).then((res)=>{
+    axios.get(`https://stopnshops.herokuapp.com/product/${id}`).then((res)=>{
         setProductdata(res.data)
+
     })
     .catch((error)=>{
         console.log({err:error.message})
@@ -43,7 +41,7 @@ import { useNavigate, useParams } from 'react-router-dom';
    
     let userData=JSON.parse(localStorage.getItem('login')) || []
     console.log(userData, "p[{}}{")
-    console.log(productdata);
+    console.log(productdata, "Janab");
    if(userData.length!==0)
    {
            var obj={...productdata, "userId": userData.user._id};
@@ -51,9 +49,10 @@ import { useNavigate, useParams } from 'react-router-dom';
   
     const handleChange=()=>
     {
-              axios.get(`http://localhost:8000/cart/${productdata._id}`)
+              axios.get(`https://stopnshops.herokuapp.com/${productdata._id}`)
                    .then((r)=>{
                        setAlready(true);
+                       setProductdata(r.data)
                    })
      
       if(userData.length==0)
@@ -68,7 +67,7 @@ import { useNavigate, useParams } from 'react-router-dom';
           alert("ALready added to the cart")
         }
         {
-        axios.post('http://localhost:8000/cart',obj)
+        axios.post('https://stopnshops.herokuapp.com/cart',obj)
          .then((r)=>{
             console.log(r);
             alert('added to Cart')         
