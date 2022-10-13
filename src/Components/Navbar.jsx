@@ -12,8 +12,7 @@ import {
   useDisclosure,
   useColorModeValue,
   useColorMode,
-  Input
-  , Center,
+ Center,
   VStack,
   Heading,
   Stack,
@@ -45,7 +44,7 @@ export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [cart, setCart] = useState([])
   let userData = JSON.parse(localStorage.getItem('login')) || [];
- console.log(userData)
+
   const handledelete = () => {
     localStorage.removeItem('login');
     window.location.reload()
@@ -80,7 +79,12 @@ export const Navbar = () => {
         }
     }
 
-   
+   const handlecart=()=>{
+    if(userData.length===0)
+    {
+      alert("please login to Shop");
+    }
+   }
 
   useEffect(() => {
     Display()
@@ -108,8 +112,8 @@ export const Navbar = () => {
                   Contact
                 </Heading>
               </Link>
-              <Link to='/cart'>
-                <Box className='outer'>
+              <Link to={userData.length==0 ? "/login" :"/cart"}>
+                <Box className='outer' onClick={handlecart}>
                   <ImCart size='22px' />
                   <Box className='jadu'>
                     {cart.length!==0 ? sum: 0}

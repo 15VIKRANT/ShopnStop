@@ -103,6 +103,15 @@ export const Cart = () => {
 
 
   const paymentHandler = async (e) => {
+
+    axios.post(`http://localhost:5100/orders`,cartdata)
+    .then((res)=>{
+      console.log(res.data , "added to orders succesfully")
+    })
+    .catch((err)=>{
+      console.log({err: err.message})
+    })
+    
     alert("Your order is placed successfully")
     axios.delete(`https://stopnshops.herokuapp.com/cart/deleteall/${id}`)
       .then((r) => console.log(r))
@@ -110,6 +119,8 @@ export const Cart = () => {
     navigate("/")
   };
 
+
+  console.log(cartdata, "mobin")
   return (
     <Box width={"80%"} display="flex" margin={"auto"}>
       <Box width={"50%"} >

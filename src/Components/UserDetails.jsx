@@ -12,12 +12,13 @@ import {
     useColorModeValue,
     
   } from '@chakra-ui/react';
-  import { useState } from 'react';
-
+  import { useEffect, useState } from 'react';
+  import { FaUserEdit } from "react-icons/fa";
 import axios from 'axios';
   
   export const UserDetails=()=>{
-   
+    const [users, setUsers] =useState([]);
+    const [isupdate, setIsupdate] =useState(false)
     let userData=JSON.parse(localStorage.getItem('login')) || [];
    const [data, setData] =useState({
     address:"",
@@ -35,14 +36,32 @@ import axios from 'axios';
 
  const update=(e)=>{
     e.preventDefault()
-        axios.patch(`https://stopnshops.herokuapp.com/${userData.user._id}`,data)
+        axios.patch(`http://localhost:5100/updateuser/${userData.user._id}`,data)
         .then((res)=>{
-              console.log(res)
+              setIsupdate(!isupdate)
         })
         .catch((error)=>{
             console.log({error:error.message})
         })
    }
+   
+   const getUsers = () =>{
+     axios.get(`http://localhost:5100/users/${userData.user._id}`)
+     .then((res)=>{
+       setUsers(res.data)
+       
+      }) 
+      .catch((err)=>{
+        console.log({err:err.message})
+      })
+    }
+    
+    
+useEffect(()=>{
+  getUsers()
+  
+}, [isupdate])
+
 
     return (
       <Flex
@@ -68,8 +87,9 @@ import axios from 'axios';
               <HStack>
                 <Box>
                   <FormControl id="firstName" isRequired>
+                    <FaUserEdit/>
                     <FormLabel>First Name</FormLabel>
-                    <Text type="text">{userData.user.firstname}  {userData.user.lastname}</Text>
+                    <Text type="text">{users.firstname}  {users.lastname}</Text>
                   </FormControl>
                 </Box>
                 <Box>
@@ -77,33 +97,24 @@ import axios from 'axios';
               </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Text type="text">{userData.user.email}</Text>
+                <Text type="text">{users.email}</Text>
               </FormControl>
 
 
-             {userData.user.address  ? <FormControl id="firstName" isRequired>
+            <FormControl id="firstName" isRequired>
                     <FormLabel>Address</FormLabel>
-                    <Text type="text">Address: {userData.user.address} </Text>
-                   
+                    <Input type="text" placeholder={users.address} name="address" onChange={handle}/>  
                   </FormControl> 
-                  
-                  
-                  :  <FormControl id="address" isRequired>
-                <FormLabel>Address</FormLabel>
-                
-                  <Input type='text' placeholder='Add Address' name="address" onChange={handle}/>
-                
-              </FormControl>}
 
-              {userData.user.Phone  ? <FormControl id="firstName" isRequired>
+
+               
+                
+              <FormControl id="Phone" isRequired>
                     <FormLabel>Phone Nos</FormLabel>
-                    <Text type="text">Phone: {userData.user.Phone} </Text>
+                    <Input type="text"  placeholder={users.Phone} name="Phone" onChange={handle}/>
                     </FormControl> 
-                  : <FormControl>
-                  <FormLabel>Phone Number</FormLabel>  
-                    <Input type='number' placeholder='Add Number' name="Phone" onChange={handle}/>
                   
-                </FormControl>}
+                 
              
               
               <Stack spacing={10} pt={2}>

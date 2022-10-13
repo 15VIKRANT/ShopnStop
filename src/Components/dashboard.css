@@ -19,5 +19,16 @@
 
 .innerbox{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.rightbox{
+    width: 960px;
+    border: 1px solid blue;
+}
+
+
+.userlist {
+    display: flex;
+    justify-content: space-around;
 }

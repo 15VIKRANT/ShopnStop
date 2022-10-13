@@ -114,7 +114,7 @@ export const Products = () => {
         <div className='outerbox' >
           {data.map((e) => {
             return (
-              <div className='product' onClick={handlechange} key={e.id} >
+              <div className='product' onClick={handlechange} key={e._id} >
                 <Link to={`/product/${e._id}`}>
                   <Center h='210px' color='white'>
                     <Image src={e.image} alt='image' />
