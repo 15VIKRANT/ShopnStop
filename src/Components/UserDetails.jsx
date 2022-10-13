@@ -14,6 +14,7 @@ import {
   } from '@chakra-ui/react';
   import { useEffect, useState } from 'react';
   import { FaUserEdit } from "react-icons/fa";
+  import { Link } from 'react-router-dom';
 import axios from 'axios';
   
   export const UserDetails=()=>{
@@ -36,7 +37,7 @@ import axios from 'axios';
 
  const update=(e)=>{
     e.preventDefault()
-        axios.patch(`http://localhost:5100/updateuser/${userData.user._id}`,data)
+        axios.patch(`https://stopnshops.herokuapp.com/updateuser/${userData.user._id}`,data)
         .then((res)=>{
               setIsupdate(!isupdate)
         })
@@ -46,7 +47,7 @@ import axios from 'axios';
    }
    
    const getUsers = () =>{
-     axios.get(`http://localhost:5100/users/${userData.user._id}`)
+     axios.get(`https://stopnshops.herokuapp.com/users/${userData.user._id}`)
      .then((res)=>{
        setUsers(res.data)
        
@@ -113,11 +114,14 @@ useEffect(()=>{
                     <FormLabel>Phone Nos</FormLabel>
                     <Input type="text"  placeholder={users.Phone} name="Phone" onChange={handle}/>
                     </FormControl> 
-                  
-                 
-             
-              
-              <Stack spacing={10} pt={2}>
+
+         
+                    <FormControl id="Phone" isRequired>
+                    <FormLabel>Orders</FormLabel>
+                    <Link to={`/orders/${userData.user._id}`}><Button>Orders</Button></Link>
+                    </FormControl> 
+       
+         <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"
                   size="lg"

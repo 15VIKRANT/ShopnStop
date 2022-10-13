@@ -128,7 +128,7 @@ const handleNew=(e)=>{
       axios.get('https://stopnshops.herokuapp.com/user')
         .then((res)=>{
           setUserlist(res.data.user)
-            //console.log(userlist, "userlist");
+          
         })
         .catch((err)=>{
            console.log({err:err.message})
@@ -137,7 +137,6 @@ const handleNew=(e)=>{
  
 
     useEffect((e)=>{
-
         displayusers()
         })
 

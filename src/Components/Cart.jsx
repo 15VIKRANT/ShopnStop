@@ -4,7 +4,7 @@ import "./cart.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MdSmartDisplay } from "react-icons/md";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { RiCoupon3Fill } from "react-icons/ri"
 export const Cart = () => {
   const [cartdata, setCartdata] = useState([]);
@@ -104,7 +104,7 @@ export const Cart = () => {
 
   const paymentHandler = async (e) => {
 
-    axios.post(`http://localhost:5100/orders`,cartdata)
+    axios.post(`https://stopnshops.herokuapp.com/orders`,cartdata)
     .then((res)=>{
       console.log(res.data , "added to orders succesfully")
     })
@@ -120,12 +120,13 @@ export const Cart = () => {
   };
 
 
-  console.log(cartdata, "mobin")
+  
   return (
     <Box width={"80%"} display="flex" margin={"auto"}>
       <Box width={"50%"} >
         <Box>
-          {cartdata?.map((e) => {
+          {cartdata.length!==0 ? <Box>
+            {cartdata?.map((e) => {
             return (
               <SimpleGrid key={e._id} columns={[2, null, 5]} spacing='10px' mt={"20px"}>
                 <Center>
@@ -156,6 +157,18 @@ export const Cart = () => {
               </SimpleGrid>
             );
           })}
+          </Box>:
+           <Box>
+            <Heading>
+            Your Cart is Empty!! 
+            </Heading>
+            <Link to='/product'>
+              <Heading>
+              Click Here to Continue
+              </Heading>
+             </Link>
+             </Box>}
+         
         </Box>
       </Box>
       <Box width={"50%"}>
