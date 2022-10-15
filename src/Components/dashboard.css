@@ -1,34 +1,20 @@
-.boxer{
-     display: flex;
-     justify-content: space-between;
-     border: 1px solid black;
-     margin: 2px;
-     height: 200px;
+.boxer {
+    margin: 10px;
+    margin-top: 10px;
 }
 
-.boxer > img{
-    height: 190px;
-    width: 150px;
-}
-
-.sidebar{
+.sidebar {
     display: flex;
     flex-direction: column;
 }
 
-
-.innerbox{
+.innerbox {
     display: flex;
     justify-content: space-around;
 }
 
-.rightbox{
+.rightbox {
     width: 960px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
-
-.userlist {
-    display: flex;
-    justify-content: space-around;
-}

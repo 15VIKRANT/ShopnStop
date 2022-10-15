@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react';
 import { Link, ScrollRestoration } from 'react-router-dom'
 import axios from 'axios'
 import './product.css'
+import Images_Corolse from './Images_Corolse';
 const IMAGE =
   'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
 
@@ -72,6 +73,7 @@ export const Products = () => {
     displayData(name, sort)
   }, [name, sort])
 
+  // console.log(data);
 
   return (
 
@@ -118,6 +120,7 @@ export const Products = () => {
                 <Link to={`/product/${e._id}`}>
                   <Center h='210px' color='white'>
                     <Image src={e.image} alt='image' />
+                    {/* <Images_Corolse image1={e.image} image2={e.thumbnailImage} /> */}
                   </Center>
                   <Heading as='h6' size='xs' >
                     {e.name}

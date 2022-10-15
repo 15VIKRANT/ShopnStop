@@ -24,13 +24,13 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/product' element={<Products />}></Route>
         <Route path='/product/:id' element={<SingleProduct />}></Route>
-        <Route path='/orders/:id' element={<Orders/>}></Route>
-        <Route path='/cart' element={userData.length!==0? <Cart/>:<Login/>}></Route>  
+        <Route path='/orders/:id' element={<Orders />}></Route>
+        <Route path='/cart' element={userData.length !== 0 ? <Cart /> : <Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/dashboard' element={userData.length!==0 && userData.user.role=="admin" ?<Dashboard/>:<Login/>}></Route>
+        <Route path='/dashboard' element={userData.length !== 0 && userData.user.role == "admin" ? <Dashboard /> : <Login />}></Route>
         <Route path='/userdetail' element={<UserDetails />}></Route>
-        <Route path='/contactus' element={<Contactus/>}></Route>
+        <Route path='/contactus' element={<Contactus />}></Route>
       </Routes>
     </div>
   );
