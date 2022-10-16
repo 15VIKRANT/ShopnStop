@@ -36,10 +36,11 @@ export const Products = () => {
   console.log(name)
 
   const displayData = (name, sort) => {
-
+  
     axios.get('https://stopnshops.herokuapp.com/product').then((res) => {
       var array = res.data;
       var array = array.filter((e) =>
+
         e.manufacturer.includes(name)
       );
       if (sort == "asc") {
@@ -116,7 +117,7 @@ export const Products = () => {
         <div className='outerbox' >
           {data.map((e) => {
             return (
-              <div className='product' onClick={handlechange} key={e._id} >
+              <div className='product' onClick={handlechange}  key={e._id}>
                 <Link to={`/product/${e._id}`}>
                   <Center h='210px' color='white'>
                     <Image src={e.image} alt='image' />
