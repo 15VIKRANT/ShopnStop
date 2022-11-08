@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Beardo-Clone
+### Project Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_To start with the Project run the following command in terminal in "backend" folder_
 
-## Available Scripts
+> > ⌘ npm start
 
-In the project directory, you can run:
+> After that run index.html in live server and you are ready to run and explore our project.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Team Members
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Vikrant Vinayak Raut](https://github.com/15VIKRANT)
+- [Jagamohan Panda](https://github.com/Jagamohan-81)
+- [Ritu Bankey](https://github.com/Ritu1011)
+- [Vishal Vivare](https://github.com/vishalvivare)
+- [Neelam Singh](https://github.com/Neelam2026)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Tech Stack Used : -
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- #### Languages
+  - HTML
+  - CSS
+  - JavaScript ES6
+- #### Framework
+  - Node.Js
+- #### Libraries
+  - Express
+  - mongoose
+- #### Database
+  - MongoDB
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### _Following are the Screenshots for the reference_
 
-### `npm run eject`
+- Landing Page
+  ![Landing Page](https://miro.medium.com/max/1400/1*Zuwc_r5ReiIC3-obVc3RWw.jpeg)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Product Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ![Landing Page](https://miro.medium.com/max/1400/1*S3T0tSTZCrZlOhspFJZSWw.jpeg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Sign-Up & Sign-In Page
 
-## Learn More
+  ![Landing Page](https://miro.medium.com/max/1400/1*6x8JMbVZWqQyU9vub9Reyg.jpeg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Cart Page
 
-### Code Splitting
+  ![Landing Page](https://miro.medium.com/max/875/0*qy8KRtpzkNYaFZ1N.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Payment Page
 
-### Analyzing the Bundle Size
+  ![Landing Page](https://miro.medium.com/max/875/0*ZP_AX1On72rY4QQN.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### About Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+> We did this project within 4 days in our unit-4 construct week. We worked on backend parts with includes various types of libraries into it and we have also added database for our project so user and product details will be saved and can be used accordingly. We have also add some cool functionality in our home page, product page and cart page where you can filter the products according to your choice and user can Signup and Login to buy the products.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Medium Link
 
-### Deployment
+https://medium.com/@vvraut010/project-beardo-50817a71d66c
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Google Drive Link
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://drive.google.com/drive/folders/1Gsq9AyyDSAn02JTst-GUjWtSsvTVMNCM?usp=sharing
