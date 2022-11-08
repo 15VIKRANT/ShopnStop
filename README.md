@@ -50,11 +50,11 @@
 </p>
 
 
-Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes & clothes online with payment gateway integration. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website. This project is just for educational purpose.
+ MERN Stack e-commerce web application that allows you to buy products related to Electronics, online. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website. This project is just for educational purpose.
 
 
 
-![cover](https://user-images.githubusercontent.com/91532881/175955112-da88c18c-ac5e-455a-9ac5-047c7db4f894.png)
+![cover](https://user-images.githubusercontent.com/93037846/200541435-1959940c-d0d0-4bee-a95a-6e56fd262e0b.png)
 
 <br />
 
@@ -63,12 +63,9 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes
 - Product Listing Page with Filters
 - Product Description Page
 - Cart Management Page
-- Wishlist/Favourites Management Page
-- Checkout with Address Management Page
 - Login / Logout Page
 - Signup Page
 - Order Summary Page
-
 
 <br />
 
@@ -76,7 +73,7 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes
 ## 🚀 Features
 - Login and Signup User Account
 - JWT (Json Web Token) Authentication and BcryptJS Password Hashing 
-- Product Filters Based on Price, Category, Size, Color and Gender
+- Product Filters Based on Price, Category
 - Product Sorting Based on Price, Rating and Name
 - Product Filtering and Sorting works together 
 - My Orders Section for details of all ordered item
@@ -84,71 +81,31 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes
 - Cart Add and Remove Items 
 - Cart Update Quantities 
 - Darkmode available
-
 <br />
 
 ## Glimpses of WebSite🙈 :
 
-
 <table>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955122-200a6ccb-54a5-4f39-9bc2-cd3ba3a4d102.jpeg" alt="home" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955109-b51e3e81-4cd8-4f00-a8cd-873c82882a15.png" alt="coupons" /></td>
+    <td><img src="https://user-images.githubusercontent.com/93037846/200541435-1959940c-d0d0-4bee-a95a-6e56fd262e0b.png" alt="home" /></td>
+    <td><img src="https://user-images.githubusercontent.com/93037846/200541453-db062acf-af05-4997-8898-21aca15f75a5.png" alt="login" /></td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955141-44aefea0-a9ee-4c3a-93e0-094ca9214e54.jpeg" alt="signup" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955129-e5392377-e72a-4868-883f-5a244fc9bc87.jpeg" alt="login" /></td>
+    <td><img src="https://user-images.githubusercontent.com/93037846/200541463-2b2b3c42-09bf-42e7-96b1-01f24b8086af.png" alt="allProducts" /></td>
+    <td><img src="https://user-images.githubusercontent.com/93037846/200542851-967d0517-e18a-42b9-a1b6-6b4926f0b0fe.png" alt="Product Details" /></td>
   </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955097-9fe2e5a5-b4f4-4c1f-beb7-4080186e5a17.jpeg" alt="allProducts" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175957017-3530fe22-46ae-4bf7-a645-55f7a5f25ed9.jpeg" alt="men" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955142-dd33e21a-49a9-4aeb-89e7-edb3e871828f.jpeg" alt="women" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955126-2874a5c1-8655-40ab-b9ce-67275139e70e.jpeg" alt="kids" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955114-1090036d-2e73-46fa-8aca-8ef9ffab1724.jpeg" alt="description" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955117-edff5eaf-7507-4580-b3b8-3aea6c089840.jpeg" alt="descriptionDark" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955106-867749b1-4838-40dc-b184-145f10d1eec2.jpeg" alt="cart" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955107-f93e13a0-6c50-46e8-a5f3-09d15421e97b.jpeg" alt="checkout" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955137-828f89b2-648e-4a68-885a-fa3f3f29b55c.png" alt="razorpay" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955133-96792a4b-7e70-4e1e-a5cf-999da70a9c95.jpeg" alt="orders" /></td>
+
+    <td><img src="https://user-images.githubusercontent.com/93037846/200541417-d05061c5-12bf-47e6-8e48-044378fbf575.png" alt="cart" /></td>
+    <td><img src="https://user-images.githubusercontent.com/93037846/200541401-d5553eb3-8e52-479f-96d4-455ff9f70903.png" alt="Admin" /></td>
   </tr>
 </table>
 
 <br />
 
-## Test Coupon Codes
-```
-NIKE5 (for 5% Off)
-
-NIKE10 (for 10% Off)
-
-NIKE15 (for 15% Off)
-
-NIKE20 (for 15% Off)
-
-NIKE25 (for 25% Off)
-
-NIKE30 (for 30% Off)
-```
-
-## Razorpay test payment Cards
-
-[Click here to use the razorpay testing payment methods](https://razorpay.com/docs/payments/payments/test-card-upi-details/)
-
-
-<br />
-
 
 <h2>Demo</h2>
-
-[Click here to see the presentation video of this project](https://www.linkedin.com/posts/m-sehrawat_reactjs-nike-nikecareers-activity-6947552300534042624-me2_?utm_source=linkedin_share&utm_medium=member_desktop_web)
+<!-- 
+[Click here to see the presentation video of this project](https://www.linkedin.com/posts/m-sehrawat_reactjs-nike-nikecareers-activity-6947552300534042624-me2_?utm_source=linkedin_share&utm_medium=member_desktop_web) -->
 
 
 <br />
@@ -234,26 +191,10 @@ To run the application got to the client folder and run the following command:
 npm start
 ```
 
-### Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file in server folder
-
-`JWT_ACCESS_KEY`
-
-`MONGO_PATH`
-
-`RAZORPAY_KEY_ID`
-
-`RAZORPAY_KEY_SECRET`
-
-
-
 ### Tools used on this project
 
 - Visual Studio Code
-- Vite-JS template
-- MongoDB compass
-- Razorpay Dashboard to monitor payments
+- Create-React-App template
 
 <br />
 
@@ -263,10 +204,9 @@ To run this project, you will need to add the following environment variables to
 
 If you want to contact me, you can reach me through below handles.
 
-[![linkedin](https://img.shields.io/badge/Mohit_Sehrawat-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([[https://www.linkedin.com/in/vikrantraut/]])
-[![GitHub](https://img.shields.io/badge/Vikrant-Raut-20232A?style=for-the-badge&logo=Github&logoColor=white)]([https://github.com/m-sehrawat/](https://github.com/15VIKRANT))
-
-© 2022 Mohit Sehrawat
+[![linkedin](https://img.shields.io/badge/Vikrant_Raut-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([[https://www.linkedin.com/in/vikrantraut/]])
+[![GitHub](https://img.shields.io/badge/Vikrant-Raut-20232A?style=for-the-badge&logo=Github&logoColor=white)]([https://github.com/15VIKRANT-/])
+© 2022 Vikrant Raut
 
 
 
