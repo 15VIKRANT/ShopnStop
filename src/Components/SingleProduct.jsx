@@ -63,7 +63,7 @@ export const SingleProduct = () => {
         alert("ALready added to the cart")
       }
       {
-        axios.post('https://stopnshops.herokuapp.com/cart', obj)
+        axios.post('https://myshop-backend-556t.onrender.com/cart', obj)
           .then((r) => {
             console.log(r);
             alert('added to Cart')
