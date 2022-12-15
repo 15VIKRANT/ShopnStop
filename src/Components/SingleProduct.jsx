@@ -47,7 +47,7 @@ export const SingleProduct = () => {
   }
 
   const handleChange = () => {
-    axios.get(`https://myshop-backend-556t.onrender.com/${productdata._id}`)
+    axios.get(`https://myshop-backend-556t.onrender.com/product/${productdata._id}`)
       .then((r) => {
         setAlready(true);
         setProductdata(r.data)
