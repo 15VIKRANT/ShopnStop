@@ -15,7 +15,7 @@ export const Cart = () => {
 
   const Display=()=>{
     axios
-      .get(`https://stopnshops.herokuapp.com/cart/${id}`)
+      .get(`https://myshop-backend-556t.onrender.com/${id}`)
       .then((r) => {
         setCartdata(r.data);
       })
@@ -27,7 +27,7 @@ export const Cart = () => {
   const increment = (e) => {
     axios
       .patch(
-        `https://stopnshops.herokuapp.com/cart/${e._id}`, { count: e.count + 1 },
+        `https://myshop-backend-556t.onrender.com/${e._id}`, { count: e.count + 1 },
         {
           headers: { "Content-type": "application/json; charset=UTF-8" },
         }
@@ -48,7 +48,7 @@ export const Cart = () => {
   const decrement = (e) => {
     axios
       .patch(
-        `https://stopnshops.herokuapp.com/cart/${e._id}`,
+        `https://myshop-backend-556t.onrender.com/cart/${e._id}`,
         { count: e.count - 1 },
         {
           headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -87,7 +87,7 @@ export const Cart = () => {
 
   const handleDelete = (e) => {
     axios
-      .delete(`https://stopnshops.herokuapp.com/cart/${e._id}`)
+      .delete(`https://myshop-backend-556t.onrender.com/cart/${e._id}`)
       .then((res) => {
         console.log(res, "deleted");
       })
@@ -104,7 +104,7 @@ export const Cart = () => {
 
   const paymentHandler = async (e) => {
 
-    axios.post(`https://stopnshops.herokuapp.com/orders`,cartdata)
+    axios.post(`https://myshop-backend-556t.onrender.com/orders`,cartdata)
     .then((res)=>{
       console.log(res.data , "added to orders succesfully")
     })
@@ -113,7 +113,7 @@ export const Cart = () => {
     })
     
     alert("Your order is placed successfully")
-    axios.delete(`https://stopnshops.herokuapp.com/cart/deleteall/${id}`)
+    axios.delete(`https://myshop-backend-556t.onrender.com/cart/deleteall/${id}`)
       .then((r) => console.log(r))
       .catch((e) => console.log({ error: e.message }))
     navigate("/")

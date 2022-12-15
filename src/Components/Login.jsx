@@ -42,7 +42,7 @@ export const Login = () => {
 
   const submit = (e) => {
     console.log(data)
-    axios.post('https://stopnshops.herokuapp.com/login', data)
+    axios.post('https://myshop-backend-556t.onrender.com/login', data)
       .then((r) => {
         console.log(r)
         alert('Login Succesfull')

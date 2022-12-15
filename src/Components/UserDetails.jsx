@@ -37,7 +37,7 @@ import axios from 'axios';
 
  const update=(e)=>{
     e.preventDefault()
-        axios.patch(`https://stopnshops.herokuapp.com/updateuser/${userData.user._id}`,data)
+        axios.patch(`https://myshop-backend-556t.onrender.com/updateuser/${userData.user._id}`,data)
         .then((res)=>{
               setIsupdate(!isupdate)
         })
@@ -47,7 +47,7 @@ import axios from 'axios';
    }
    
    const getUsers = () =>{
-     axios.get(`https://stopnshops.herokuapp.com/users/${userData.user._id}`)
+     axios.get(`https://myshop-backend-556t.onrender.com/users/${userData.user._id}`)
      .then((res)=>{
        setUsers(res.data)
        

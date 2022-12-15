@@ -40,7 +40,7 @@ const Dashboard = () => {
 
   const displayData = (name, sort) => {
 
-    axios.get('https://stopnshops.herokuapp.com/product').then((res) => {
+    axios.get('https://myshop-backend-556t.onrender.com/product').then((res) => {
       var array = res.data;
       var array = array.filter((e) =>
         e.manufacturer.includes(name)
@@ -142,7 +142,7 @@ const Users = () => {
   const color = useColorModeValue('gray.50', 'gray.900')
 
   const displayusers = () => {
-    axios.get('https://stopnshops.herokuapp.com/user')
+    axios.get('https://myshop-backend-556t.onrender.com/user')
       .then((res) => {
         setUserlist(res.data.user)
 

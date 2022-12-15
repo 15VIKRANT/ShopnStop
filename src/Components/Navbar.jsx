@@ -55,7 +55,7 @@ export const Navbar = () => {
     if(userData.length!==0)
     { 
     axios
-      .get(`https://stopnshops.herokuapp.com/cart/${userData.user._id}`)
+      .get(`https://myshop-backend-556t.onrender.com/cart/${userData.user._id}`)
       .then((r) => {
         setCart(r.data);      
       })

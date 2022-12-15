@@ -37,7 +37,7 @@ export const Signup = () => {
 
   const submit = (e) => {
     console.log(data)
-    axios.post('https://stopnshops.herokuapp.com/register', data)
+    axios.post('https://myshop-backend-556t.onrender.com/register', data)
       .then((r) => {
         alert('signup Succesfull')
         navigate('/login')

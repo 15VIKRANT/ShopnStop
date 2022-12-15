@@ -45,7 +45,7 @@ export const Contactus = () => {
 
   const submit = () => {
     axios
-      .post("https://stopnshops.herokuapp.com/client", data)
+      .post("https://myshop-backend-556t.onrender.com/client", data)
       .then((res) => {
         console.log(res);
       })

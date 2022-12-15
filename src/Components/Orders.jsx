@@ -21,7 +21,7 @@ export const Orders = () => {
   const [isOrderupdate, setIsOrderupdate] = useState(false);
   let userData = JSON.parse(localStorage.getItem('login')) || [];
   const orderList = () => {
-    axios.get(`https://stopnshops.herokuapp.com/orders/${id}`)
+    axios.get(`https://myshop-backend-556t.onrender.com/orders/${id}`)
       .then((res) => {
         setOrderdetails(res.data)
       })
@@ -33,7 +33,7 @@ export const Orders = () => {
   const handleDispatch = (e) => {
 
     e.preventDefault()
-    axios.patch(`https://stopnshops.herokuapp.com/orders/updateorder/${e.target.value}`, { orderStatus: "Dispatch" })
+    axios.patch(`https://myshop-backend-556t.onrender.com/orders/updateorder/${e.target.value}`, { orderStatus: "Dispatch" })
       .then((res) => {
 
         setIsOrderupdate(!isOrderupdate)
@@ -45,7 +45,7 @@ export const Orders = () => {
 
   const handleDelivery = (e) => {
     e.preventDefault()
-    axios.patch(`https://stopnshops.herokuapp.com/orders/updateorder/${e.target.value}`, { orderStatus: "Delivery" })
+    axios.patch(`https://myshop-backend-556t.onrender.com/orders/updateorder/${e.target.value}`, { orderStatus: "Delivery" })
       .then((res) => {
 
         setIsOrderupdate(!isOrderupdate)
@@ -57,7 +57,7 @@ export const Orders = () => {
 
   const handleDelivered = (e) => {
     e.preventDefault()
-    axios.patch(`https://stopnshops.herokuapp.com/orders/updateorder/${e.target.value}`, { orderStatus: "Delivered" })
+    axios.patch(`https://myshop-backend-556t.onrender.com/orders/updateorder/${e.target.value}`, { orderStatus: "Delivered" })
       .then((res) => {
         setIsOrderupdate(!isOrderupdate)
       })

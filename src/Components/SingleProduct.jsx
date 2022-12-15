@@ -29,7 +29,7 @@ export const SingleProduct = () => {
 
   const displayData = () => {
 
-    axios.get(`https://stopnshops.herokuapp.com/product/${id}`).then((res) => {
+    axios.get(`https://myshop-backend-556t.onrender.com/${id}`).then((res) => {
       setProductdata(res.data)
 
     })
@@ -47,7 +47,7 @@ export const SingleProduct = () => {
   }
 
   const handleChange = () => {
-    axios.get(`https://stopnshops.herokuapp.com/${productdata._id}`)
+    axios.get(`https://myshop-backend-556t.onrender.com/${productdata._id}`)
       .then((r) => {
         setAlready(true);
         setProductdata(r.data)

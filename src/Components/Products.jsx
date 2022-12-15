@@ -37,7 +37,7 @@ export const Products = () => {
 
   const displayData = (name, sort) => {
   
-    axios.get('https://stopnshops.herokuapp.com/product').then((res) => {
+    axios.get('https://myshop-backend-556t.onrender.com/product').then((res) => {
       var array = res.data;
       var array = array.filter((e) =>
 
