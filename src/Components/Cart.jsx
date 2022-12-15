@@ -1,9 +1,8 @@
-import { Box, Image, Input, Flex, Button, SimpleGrid, HStack, Center, Text, Heading } from "@chakra-ui/react";
+import { Box, Image, Input, Flex, Button, SimpleGrid, Center, Text, Heading } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 import "./cart.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { MdSmartDisplay } from "react-icons/md";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { RiCoupon3Fill } from "react-icons/ri"
 export const Cart = () => {

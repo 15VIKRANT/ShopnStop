@@ -25,7 +25,6 @@ import {
   MdOutlineEmail,
 } from "react-icons/md";
 import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
-import { useActionData } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 export const Contactus = () => {
