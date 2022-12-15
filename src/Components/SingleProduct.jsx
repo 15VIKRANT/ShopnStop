@@ -29,7 +29,7 @@ export const SingleProduct = () => {
 
   const displayData = () => {
 
-    axios.get(`https://myshop-backend-556t.onrender.com/${id}`).then((res) => {
+    axios.get(`https://myshop-backend-556t.onrender.com/product/${id}`).then((res) => {
       setProductdata(res.data)
 
     })
