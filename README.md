@@ -204,8 +204,8 @@ npm start
 
 If you want to contact me, you can reach me through below handles.
 
-[![linkedin](https://img.shields.io/badge/Vikrant_Raut-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([[https://www.linkedin.com/in/vikrantraut/]])
-[![GitHub](https://img.shields.io/badge/Vikrant-Raut-20232A?style=for-the-badge&logo=Github&logoColor=white)]([https://github.com/15VIKRANT-/])
+[![linkedin](https://img.shields.io/badge/Vikrant_Raut-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([[https://www.linkedin.com/in/vikrantraut]])
+[![GitHub](https://img.shields.io/badge/Vikrant-Raut-20232A?style=for-the-badge&logo=Github&logoColor=white)]([https://github.com/15VIKRANT])
 © 2022 Vikrant Raut
 
 
